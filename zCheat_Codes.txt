@@ -1,0 +1,26 @@
+CHEAT CODES
+
+
+***Anaconda***
+
+conda activate kern_condaEnv_py36
+
+conda deactivate
+
+python -m http.server 8888
+
+Ctrl+C [stops server]
+
+
+***GitHub***
+
+git status
+
+git add
+
+git commit
+
+git push
+
+
+
