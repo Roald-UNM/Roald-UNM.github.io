@@ -13,14 +13,15 @@ Pictures
 
 Troubleshoot:
 
-Arrow turns into vertical line for text entry when it hovers over sections with text.
+****Arrow turns into vertical line for text entry when it hovers over sections with text.
 (I think this happened when I got the text and images in 'education section' originally "about section"
 
+****having trouble downloading libraries (the right ones and the right version- typ of code)
 
-scrollspy won't work but don't know why
+****making full screen images fit as big as possible
 
 
-US Parks, portfolio headings off center
+
 
 
 Git Resdtore just saved me a lot of work decoding something I messed up but didn't know where
