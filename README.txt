@@ -5,6 +5,12 @@ Skills
 Pictures
 
 
+*Still need to download all libraries
+*rotate images that went on their side
+*make a .js file
+
+
+
 Troubleshoot:
 
 Arrow turns into vertical line for text entry when it hovers over sections with text.
