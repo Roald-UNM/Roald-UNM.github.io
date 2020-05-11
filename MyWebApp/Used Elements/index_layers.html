@@ -1,0 +1,148 @@
+<!-- change projection
+make states transparent-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>US National Parks</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+
+    <!-- Load Leaflet from CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
+
+
+    <!-- Load Esri Leaflet from CDN -->
+    <script src="https://unpkg.com/esri-leaflet@2.3.3/dist/esri-leaflet.js"
+        integrity="sha512-cMQ5e58BDuu1pr9BQ/eGRn6HaR6Olh0ofcHFWe5XesdCITVuSBiBZZbhCijBe5ya238f/zMMRYIMIIg1jxv4sQ=="
+        crossorigin=""></script>
+
+
+    <!-- modal stuff -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <!-- boundary file -->
+        <script scr="nps.js"></script>
+
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            
+        }
+
+        #map {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="map"></div>
+
+    <script>
+
+
+        var gray = L.layerGroup(); L.esri.basemapLayer('Streets').addTo(gray);
+
+        var Stamen_TonerLite = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.{ext}', {
+            attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            subdomains: 'abcd',
+            minZoom: 0,
+            maxZoom: 20,
+            ext: 'png'
+        });
+
+
+        var map3 = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+            attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community'
+        });
+
+
+        var blue = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+            attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+        });
+
+        var npMap = L.tileLayer('https://www.nps.gov/lib/npmap.js/4.0.0/examples/data/gateway-points-of-interest.geojson',
+            {
+                style: function (feature) {
+                    return { color: '#bada55', weight: 1 };
+                }
+            });
+
+
+
+
+        var states = L.esri.featureLayer({
+            url: 'https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/3',
+            style: function (feature) {
+                return { color: '#ffff00', weight: 1 };
+            }
+        });
+
+
+        var map = L.map('map', {
+            center: [39, -97.5],
+            zoom: 4,
+            layers: [gray, states]
+        });
+
+        var baseLayers = {
+            "Default": Stamen_TonerLite,
+            "Street Map": gray,
+            "Topo-Map": map3,
+            "Satellite": blue
+        };
+
+        var overlays = {
+            'National Parks': npMap,
+            'U.S. States': states
+
+        };
+
+        // https://leafletjs.com/reference.html#control-layers
+        L.control.layers(baseLayers, overlays).addTo(map);
+
+
+
+
+    </script>
+
+
+
+    <p><a
+            href="https://esri.github.io/esri-leaflet/examples/layers-control.html">https://esri.github.io/esri-leaflet/examples/layers-control.html</a>"Leaflet
+        Control.Layers"</p>
+
+</body>
+
+</html>
+
+
+
+
+
+<!-- <a href="https://esri.github.io/esri-leaflet/examples/layers-control.html/" target="_blank">Leaflet Control.Layers</a> -->
+
+
+
+
+<!-- https://bl.ocks.org/pdbartsch/d4f05d9c65d80f8d4dfb -->
+<!-- Paul Bartsch’s Block d4f05d9c65d80f8d4dfb
+Updated July 9, 2017
+U.S. National Parks TopoJSON -->

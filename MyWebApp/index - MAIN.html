@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>US National Parks</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--add Leaflet CSS-->
+    <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" -->
+    <link rel="stylesheet" href="downloaded_libraries/leaflet_131_dist.css" />
+    <link rel="stylesheet" href="myCSS_styleFiles/modal.css" />
+
+    <!-- Multi-line Chart -->
+    <script src="downloaded_libraries/d3_v4130.js"></script>
+    <link rel="stylesheet" href="../myCSS_styleFiles/multi_line_chart.css">
+    <!-- <script src="https://d3js.org/d3.v4.js"></script> -->
+
+    <!--our own style rules-->
+    <style type="text/css">
+        body,
+        html {
+            height: 100%;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            margin-left: 0px;
+            margin-right: 0px;
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+
+        #map-container {
+            height: 100%;
+            width: 100%;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            margin-left: 0px;
+            margin-right: 0px;
+            z-index: 1;
+        }
+
+        #chart-container {
+            /* height: 100%; */
+            width: 100%;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: 10px;
+            margin-right: 0px;
+            z-index: 1;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+
+
+    <div class="container" style="display: flex; height: 100%;">
+        <div style="width: 70%;">
+
+            <div id="map-container"></div>
+
+        </div>
+
+
+
+        <div style="flex-grow:1">
+
+            <div id="chart-container">
+                <div id="fruitDropdown"></div>
+                <div id="yearDropdown"></div>
+                <div id="graph"></div>
+                <script src="myJS_scripts/vis_month_multi_line.js"></script>
+
+
+                <div id="chartContainer" style="display: flex; width: 100%;"></div>
+                <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+                <div id="graph"></div>
+                <script src="myJS_scripts/range_chart.js"></script>
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+    <!-- Modal begin -->
+
+    <!-- Trigger/Open The Modal -->
+    <button id="myBtn">About</button>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal fixed-bottom">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h3 style="text-shadow:2px 2px 0 #444">Interactive Map of All US National Parks</h3>
+            </div>
+            <div class="modal-body">
+                <p>This interactive web map provides a resource for exploring all US National Park locations,
+                    visitor statistics, and serves as a portal with links for both official homepages and wikipedia
+                    websites for each National Park.
+                    The goal of this webpage is to provite a high level of detail for many different fields as future
+                    updates.</p>
+                <p><b>Acknowledgements</b><br></p>
+                <p> Project Advisor: Dr. Liping Yang
+                    <a href="https://lipingyang.org/">www.lipingyang.org</a> course instructor of GEOG 585L Internet
+                    Mapping, University of New Mexico
+                    <br>
+                    Developed by: Roald Kern <a href="https://roald-unm.github.io">https://roald-unm.github.io</a> <br>
+                    <small>Updated 4/29/20</Small></p>
+            </div>
+            <div class="modal-footer">
+                <!-- <h3 style="text-shadow:2px 2px 0 #444">Links for Data Sources <br></h3> -->
+
+                <a href="data/License.txt" target="_blank"><small>License</small></a> &nbsp
+
+                <a href="https://irma.nps.gov/STATS/" target="_blank"><small>National Park Visitors</small></a> &nbsp
+
+                <a href="https://www.w3schools.com/howto/howto_css_modals.asp" target="_blank"><small>Modal</small></a>
+                &nbsp;
+
+                <a href="https://bl.ocks.org/ProQuestionAsker/b8f8c2ab12c4f21e882aeb68728216c2"
+                    target="_blank"><small>Multi-Line Chart</small></a> &nbsp;
+
+                <a href="https://www.educative.io/edpresso/how-to-make-side-by-side-divs-in-html"
+                    target="_blank"><small>Flex</small></a> &nbsp;
+
+                <!-- <a href="https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_three_columns_unequal"
+                    target="_blank"><small>Column Layout</small></a> &nbsp; -->
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Modal content -->
+    <script src="myJS_scripts/modal.js"></script>
+
+    <!-- Modal end -->
+
+
+
+
+
+
+
+    <!--load leaflet.js-->
+    <!-- <script src="downloaded_libraries/leaflet_131_dist_3.js"
+    integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
+    crossorigin=""></script> -->
+    <script src="downloaded_libraries/leaflet_131_dist_3.js"></script>
+
+
+
+
+    <!--we need the topojson library as well-->
+    <!-- <script src="https://unpkg.com/topojson@3.0.2/dist/topojson.min.js"></script> -->
+    <script src="downloaded_libraries/302_topojson_min.js"></script>
+
+
+    <!--our own code to create the map-->
+    <script>
+
+        let map = L.map('map-container');
+
+        map.setView([40, -100], 4);
+
+        let bglayer_Positron = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        });
+
+
+
+        bglayer_Positron.addTo(map);
+
+        //extend Leaflet to create a GeoJSON layer from a TopoJSON file
+        L.TopoJSON = L.GeoJSON.extend({
+            addData: function (data) {
+                var geojson, key;
+                if (data.type === "Topology") {
+                    for (key in data.objects) {
+                        if (data.objects.hasOwnProperty(key)) {
+                            geojson = topojson.feature(data, data.objects[key]);
+                            L.GeoJSON.prototype.addData.call(this, geojson);
+                        }
+                    }
+                    return this;
+                }
+                L.GeoJSON.prototype.addData.call(this, data);
+                return this;
+            }
+        });
+        L.topoJson = function (data, options) {
+            return new L.TopoJSON(data, options);
+
+
+
+        };
+        //create an empty geojson layer
+        //with a style and a popup on click
+        var geojson = L.topoJson(null, {
+            style: function (feature) {
+                return {
+                    color: 'green',
+                    opacity: 1,
+                    weight: 1,
+                    fillColor: 'green',
+                    fillOpacity: 0.2
+                }
+            },
+
+            onEachFeature: function (feature, layer) {
+                layer.bindPopup('<p style="text-align:center;"><strong>' + feature.properties.UNIT_NAME + '</strong><br>' + feature.properties.state + '</p>')
+            }
+
+
+
+        }).addTo(map);
+        //fill: #317581;
+        //define a function to get and parse geojson from URL
+        async function getGeoData(url) {
+            let response = await fetch(url);
+            let data = await response.json();
+            console.log(data)
+            return data;
+        }
+
+        //fetch the geojson and add it to our geojson layer
+        getGeoData('data/nps(1)_plusCSV.json').then(data => geojson.addData(data));
+    </script>
+</body>
+
+</html>
+
+
+
+
+<!-- http://bl.ocks.org/hpfast/2fb8de57c356d8c45ce511189eec5d6a
+ Hans Fast’s Block 2fb8de57c356d8c45ce511189eec5d6a
+Updated April 6, 2020
+Leaflet with a topojson layer (used 4/30/20-->
+
+
+<!-- data from:
+https://public-nps.opendata.arcgis.com/datasets/nps-boundary-1
+-->

@@ -1,0 +1,23 @@
+
+
+
+
+
+/* stand alone code begin */
+
+.line {
+    fill: none;
+    stroke: #999999;
+    stroke-width: 2px;
+  }
+  
+  .selected{
+    stroke: green;
+    stroke-width: 10px;
+  }
+
+  /* stand alone code end */
+
+
+
+

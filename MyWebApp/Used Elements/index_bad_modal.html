@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>US National Parks</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--add Leaflet CSS-->
+     <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" -->
+    <link rel="stylesheet" href="downloaded_libraries/leaflet_131_dist.css" 
+      />
+    
+    <!--our own style rules-->
+    <style type="text/css">
+      body, html {
+        height: 100%;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
+        font-family: Arial, Helvetica, sans-serif;
+
+      }
+      #map-container {
+        height: 98%;
+        margin-top: 0px;
+        margin-bottom: -5px;
+        margin-left: 0px;
+        margin-right: 0px;
+      } 
+
+
+     /* The Modal (background) */
+     .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+            -webkit-animation-name: fadeIn;
+            /* Fade in the background */
+            -webkit-animation-duration: 0.4s;
+            animation-name: fadeIn;
+            animation-duration: 0.4s;
+
+
+
+        }
+
+        #myBtn {
+            position: fixed;
+            bottom: 5px;
+            left: 5px;
+            border-radius: 8px;
+            background-color: white;
+            opacity: 0.4;
+            color: darkgreen;
+            border: 1px solid darkgreen;
+        }
+
+        #myBtn:hover {
+            opacity: 0.9
+        }
+
+
+        /* Modal Content */
+        .modal-content {
+            position: fixed;
+            bottom: 0;
+            background-color: #fefefe;
+            width: 100%;
+            -webkit-animation-name: slideIn;
+            -webkit-animation-duration: 1.2s;
+            animation-name: slideIn;
+            animation-duration: 1.2s;
+        }
+
+
+        /* The Close Button */
+        .close {
+            color: white;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-header {
+            padding: 2px 16px;
+            background-color: #5cb85c;
+            color: white;
+            text-align: center;
+        }
+
+        .modal-body {
+            padding: 2px 16px;
+            background-color: white;
+            text-align: center;
+        }
+
+        .modal-footer {
+            padding: 2px 16px;
+            background-color: #5cb85c;
+            color: white;
+            text-align: center;
+        }
+
+        /* Add Animation */
+        @-webkit-keyframes slideIn {
+            from {
+                bottom: -300px;
+                opacity: 0
+            }
+
+            to {
+                bottom: 0;
+                opacity: 1
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                bottom: -300px;
+                opacity: 0
+            }
+
+            to {
+                bottom: 0;
+                opacity: 1
+            }
+        }
+
+        @-webkit-keyframes fadeIn {
+            from {
+                opacity: 0
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="map-container"></div>
+
+    <!-- Trigger/Open The Modal -->
+    <button id="myBtn">About</button>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal fixed-bottom">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h3 style="text-shadow:2px 2px 0 #444">Interactive Map of All US National Parks</h3>
+            </div>
+            <div class="modal-body">
+                <p>This interactive web map provides a resource for exploring all US National Park locations,
+                    visitor statistics, and serves as a portal with links for both official homepages and wikipedia
+                    websites for each National Park.
+                    The goal of this webpage is to provite a high level of detail for many different fields as future
+                    updates.</p>
+                <p><b>Acknowledgements</b><br></p>
+                <p> Project Advisor: Dr. Liping Yang
+                    <a href="https://lipingyang.org/">www.lipingyang.org</a> course instructor of GEOG 585L Internet
+                    Mapping, University of New Mexico
+                    <br>
+                    Developed by: Roald Kern <a href="https://roald-unm.github.io">https://roald-unm.github.io</a> <br>
+                    <small>Updated 4/29/20</Small></p>
+            </div>
+            <div class="modal-footer">
+                <!-- <h3 style="text-shadow:2px 2px 0 #444">Links for Data Sources <br></h3> -->
+
+                <a href="data/License.txt" target="_blank"><small>License</small></a> &nbsp
+               
+                <a href="https://esri.github.io/esri-leaflet/examples/layers-control.html"
+                        target="_blank"><small>Esri Leaflet Control Layers</small></a> &nbsp;
+
+                <a href="https://www.w3schools.com/howto/howto_css_modals.asp"
+                            target="_blank"><small>Modal</small></a> &nbsp;
+                
+                
+                <a href="https://irma.nps.gov/STATS/" target="_blank"><small>National Park Visitors</small></a> &nbsp
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal 
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+    
+    <!--load leaflet.js-->
+    <!-- <script src="downloaded_libraries/leaflet_131_dist_3.js"
+    integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
+    crossorigin=""></script> -->
+    <script src="downloaded_libraries/leaflet_131_dist_3.js"
+    ></script>
+
+    
+
+
+    <!--we need the topojson library as well-->
+    <!-- <script src="https://unpkg.com/topojson@3.0.2/dist/topojson.min.js"></script> -->
+    <script src="downloaded_libraries/302_topojson_min.js"></script>
+
+    
+    <!--our own code to create the map-->
+    <script>
+
+      let map = L.map('map-container');
+      map.setView([40, -100], 4);
+      let bglayer_Positron = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+        subdomains: 'abcd',
+        maxZoom: 19,
+        
+      });
+      
+       
+    
+      
+      bglayer_Positron.addTo(map);
+      
+      //extend Leaflet to create a GeoJSON layer from a TopoJSON file
+      L.TopoJSON = L.GeoJSON.extend({
+        addData: function (data) {
+          var geojson, key;
+          if (data.type === "Topology") {
+            for (key in data.objects) {
+              if (data.objects.hasOwnProperty(key)) {
+                geojson = topojson.feature(data, data.objects[key]);
+                L.GeoJSON.prototype.addData.call(this, geojson);
+              }
+            }
+            return this;
+          }
+          L.GeoJSON.prototype.addData.call(this, data);
+          return this;
+        }
+      });
+      L.topoJson = function (data, options) {
+        return new L.TopoJSON(data, options);
+       
+      
+
+      };
+      //create an empty geojson layer
+      //with a style and a popup on click
+      var geojson = L.topoJson(null, {
+        style: function(feature){
+          return {
+            color: 'green',
+            opacity: 1,
+            weight: 1,
+            fillColor: 'green',
+            fillOpacity: 0.2
+          }
+        },
+        
+        onEachFeature: function(feature, layer) {
+          layer.bindPopup('<p style="text-align:center;"><strong>'+feature.properties.UNIT_NAME+'</strong><br>'+feature.properties.state+'</p>')
+        }
+      }).addTo(map);
+      //fill: #317581;
+      //define a function to get and parse geojson from URL
+      async function getGeoData(url) {
+        let response = await fetch(url);
+        let data = await response.json();
+        console.log(data)
+        return data;
+      }
+      
+      //fetch the geojson and add it to our geojson layer
+      getGeoData('data/nps(1)_plusCSV.json').then(data => geojson.addData(data));
+    </script>
+  </body>
+</html>
+
+
+
+
+<!-- http://bl.ocks.org/hpfast/2fb8de57c356d8c45ce511189eec5d6a
+ Hans Fast’s Block 2fb8de57c356d8c45ce511189eec5d6a
+Updated April 6, 2020
+Leaflet with a topojson layer (used 4/30/20-->
+
+
+<!-- data from:
+https://public-nps.opendata.arcgis.com/datasets/nps-boundary-1
+-->

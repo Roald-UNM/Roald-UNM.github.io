@@ -1,0 +1,130 @@
+[
+  {
+    "key": "modelo1",
+    "values": [
+      {
+        "key": "device1",
+        "values": [
+          {
+            "key": "stb1",
+            "values": [
+              {
+                "mode": "modelo1",
+                "device": "device1",
+                "stb": "stb1",
+                "data": "data1",
+                "data1": "data2",
+                "data2": "data3",
+                "data3": "data4"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "device2",
+        "values": [
+          {
+            "key": "stb1",
+            "values": [
+              {
+                "mode": "modelo1",
+                "device": "device2",
+                "stb": "stb1",
+                "data": "data1",
+                "data1": "data2",
+                "data2": "data3",
+                "data3": "data4"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "modelo2",
+    "values": [
+      {
+        "key": "device1",
+        "values": [
+          {
+            "key": "stb1",
+            "values": [
+              {
+                "mode": "modelo2",
+                "device": "device1",
+                "stb": "stb1",
+                "data": "data1",
+                "data1": "data2",
+                "data2": "data3",
+                "data3": "data4"
+              }
+            ]
+          },
+          {
+            "key": "stb2",
+            "values": [
+              {
+                "mode": "modelo2",
+                "device": "device1",
+                "stb": "stb2",
+                "data": "data1",
+                "data1": "data2",
+                "data2": "data3",
+                "data3": "data4"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "device2",
+        "values": [
+          {
+            "key": "stb1",
+            "values": [
+              {
+                "mode": "modelo2",
+                "device": "device2",
+                "stb": "stb1",
+                "data": "data1",
+                "data1": "data2",
+                "data2": "data3",
+                "data3": "data4"
+              }
+            ]
+          },
+          {
+            "key": "stb2",
+            "values": [
+              {
+                "mode": "modelo2",
+                "device": "device2",
+                "stb": "stb2",
+                "data": "data1",
+                "data1": "data2",
+                "data2": "data3",
+                "data3": "data4"
+              }
+            ]
+          },
+          {
+            "key": "stb3",
+            "values": [
+              {
+                "mode": "modelo2",
+                "device": "device2",
+                "stb": "stb3",
+                "data": "data1",
+                "data1": "data2",
+                "data2": "data3",
+                "data3": "data4"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

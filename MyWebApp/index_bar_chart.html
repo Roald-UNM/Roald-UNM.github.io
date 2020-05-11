@@ -1,0 +1,192 @@
+<!-- http://bl.ocks.org/williaster/10ef968ccfdc71c30ef8 
+    Chris Williams’s Block 10ef968ccfdc71c30ef8
+    Updated November 18, 2019
+    Updating bar chart with dropdown
+    used 4/26/20-->
+
+
+<!-- .bar:hover from Mike Bostock’s Block 7555321
+Updated November 18, 2018
+Wrapping Long Labels
+https://bl.ocks.org/mbostock/7555321-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>National Park Visitors per Year</title>
+  <script src="libraries\d3_v3_min.js" charset="utf-8"></script>
+  <style>
+    body {
+      font: 10px sans-serif;
+    }
+
+    select {
+      display: block;
+    }
+
+    .bar {
+      fill: green;
+      opacity: 0.8;
+    }
+
+    .bar:hover {
+      fill: steelblue;
+    }
+
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: #000;
+      shape-rendering: crispEdges;
+    }
+
+    div.tooltip {
+    position: absolute;    
+    text-align: center;    
+    width: 60px;    
+    height: 28px;        
+    padding: 2px;    
+    font: 12px sans-serif;    
+    background: lightsteelblue;    
+    border: 0px;                    
+    border-radius: 8px;
+  /*  pointer-events: none;    This line needs to be removed */
+    }
+
+
+  </style>
+</head>
+
+<body>
+  <div id='vis-container'></div>
+  <script type="text/javascript">
+    // Load and munge data, then make the visualization.
+    var fileName = "np_st_web_est_yr_viz.csv";
+    var years = ["2010", "2011", "2012", "2013", "2014",
+      "2015", "2016", "2017", "2018", "2019"];
+
+    d3.csv(fileName, function (error, data) {
+      var NPMap = {};
+      data.forEach(function (d) {
+        var NP = d.Name;
+        NPMap[NP] = [];
+
+        // { NP id number: [ bar1Val, bar2Val, ... ] }
+        years.forEach(function (field) {
+          NPMap[NP].push(+d[field]);
+        });
+      });
+      makeVis(NPMap);
+    });
+
+    var makeVis = function (NPMap) {
+      // Define dimensions of vis
+      var margin = { top: 30, right: 50, bottom: 30, left: 75 },
+        width = 550 - margin.left - margin.right,
+        height = 250 - margin.top - margin.bottom;
+
+      // Make x scale
+      var xScale = d3.scale.ordinal()
+        .domain(years)
+        .rangeRoundBands([0, width], 0.1);
+
+      // Make y scale, the domain will be defined on bar update
+      var yScale = d3.scale.linear()
+        .range([height, 0]);
+
+      // Create canvas
+      var canvas = d3.select("#vis-container")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+
+        
+
+
+      // Make x-axis and add to canvas
+      var xAxis = d3.svg.axis()
+        .scale(xScale)
+        .orient("bottom");
+
+      canvas.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis);
+
+      // Make y-axis and add to canvas
+      var yAxis = d3.svg.axis()
+        .scale(yScale)
+        .orient("left");
+
+      var yAxisHandleForUpdate = canvas.append("g")
+        .attr("class", "y axis")
+        .call(yAxis);
+
+      yAxisHandleForUpdate.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 6)
+        .attr("dy", ".71em")
+        .style("text-anchor", "end")
+        .text("People");
+
+      var updateBars = function (data) {
+        // First update the y-axis domain to match data
+        yScale.domain(d3.extent(data));
+        yAxisHandleForUpdate.call(yAxis);
+
+        var bars = canvas.selectAll(".bar").data(data);
+
+        // Add bars for new data
+        bars.enter()
+          .append("rect")
+          .attr("class", "bar")
+          .attr("x", function (d, i) { return xScale(years[i]); })
+          .attr("width", xScale.rangeBand())
+          .attr("y", function (d, i) { return yScale(d); })
+          .attr("height", function (d, i) { return height - yScale(d); });
+
+        // Update old ones, already have x / width from before
+        bars
+          .transition().duration(250)
+          .attr("y", function (d, i) { return yScale(d); })
+          .attr("height", function (d, i) { return height - yScale(d); });
+
+        // Remove old ones
+        bars.exit().remove();
+      };
+
+      // Handler for dropdown value change
+      var dropdownChange = function () {
+        var newNP = d3.select(this).property('value'),
+          newData = NPMap[newNP];
+
+        updateBars(newData);
+      };
+
+      // Get names of cereals, for dropdown
+      var NP = Object.keys(NPMap).sort();
+
+      var dropdown = d3.select("#vis-container")
+        .insert("select", "svg")
+        .on("change", dropdownChange);
+
+      dropdown.selectAll("option")
+        .data(NP)
+        .enter().append("option")
+        .attr("value", function (d) { return d; })
+        .text(function (d) {
+          return d[0].toUpperCase() + d.slice(1, d.length); // capitalize 1st letter
+        });
+
+      var initialData = NPMap[NP[0]];
+      updateBars(initialData);
+    };
+  </script>
+</body>
+
+</html>

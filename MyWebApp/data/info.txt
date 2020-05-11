@@ -1,0 +1,17 @@
+np_st....csv file fields
+
+NP= unique (arbitrary) id #
+Name= Nme of National Park
+state= USA State
+nps_page= National Park Service website for that park
+wiki_page= wikipedia wensite for that park
+wstablish= year the national Park was established
+.
+.
+.
+.
+parkSQkm= National Park land area in Kilometers
+stateSQkm= Each state's land area in Kilometers
+elev_hi= Highest point (feet) in park
+elev_lo= Lowest point (feet) in park
+relief= diference in feet between each park's heighest and lowest point

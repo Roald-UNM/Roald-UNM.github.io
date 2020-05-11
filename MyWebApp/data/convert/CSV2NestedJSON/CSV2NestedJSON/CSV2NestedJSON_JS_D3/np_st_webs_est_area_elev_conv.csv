@@ -1,0 +1,64 @@
+UNIT_CODE,UNIT_NAME,UNIT_TYPE,state,nps_page,wiki_page,establish,parkSQmile,stateSQmile,parkSQkm,stateSQkm,elev_hi,elev_lo,relief
+,USA,National Park,nation,0,0,0,81887.86627,3805943.341,212088.6,"9,857,348",20310,-279,20589
+ACAD,Acadia,National Park,Maine,https://www.nps.gov/acad/index.htm,https://en.wikipedia.org/wiki/Acadia_National_Park,2/26/1919,76.6798887,35384.71843,198.6,91646,1530,0,1530
+ARCH,Arches,National Park,Utah,https://www.nps.gov/arch/index.htm,https://en.wikipedia.org/wiki/Arches_National_Park,11/12/1971,119.8074998,84898.84535,310.3,219887,5653,3960,1693
+BADL,Badlands,National Park,South Dakota,https://www.nps.gov/badl/index.htm,https://en.wikipedia.org/wiki/Badlands_National_Park,11/10/1978,379.3067606,77115.79803,982.4,199729,3340,2365,975
+BIBE,Big Bend,National Park,Texas,https://www.nps.gov/bibe/index.htm,https://en.wikipedia.org/wiki/Big_Bend_National_Park,6/24/1944,1251.820419,268820.153,3242.2,696241,7825,1715,6110
+BISC,Biscayne,National Park,Florida,https://www.nps.gov/bisc/index.htm,https://en.wikipedia.org/wiki/Biscayne_National_Park,7/28/1980,270.271511,65757.83083,700,170312,9,0,9
+BLCA,Black Canyon of the Gunnison,National Park,Colorado,https://www.nps.gov/blca/index.htm,https://en.wikipedia.org/wiki/Black_Canyon_of_the_Gunnison_National_Park,10/21/1999,48.10832896,104184.6482,124.6,269837,9040,5440,3600
+BRCA,Bryce Canyon,National Park,Utah,https://www.nps.gov/brca/index.htm,https://en.wikipedia.org/wiki/Bryce_Canyon_National_Park,2/25/1928,55.984813,84898.84535,145,219887,9115,6565,2550
+CANY,Canyonlands,National Park,Utah,https://www.nps.gov/cany/index.htm,https://en.wikipedia.org/wiki/Canyonlands_National_Park,8/12/1964,527.4927691,84898.84535,1366.2,219887,7120,3730,3390
+CARE,Capitol Reef,National Park,Utah,https://www.nps.gov/care/index.htm,https://en.wikipedia.org/wiki/Capitol_Reef_National_Park,12/18/1971,377.9940133,84898.84535,979,219887,8960,3877,5083
+CAVE,Carlsbad Caverns,National Park,New Mexico,https://www.nps.gov/cave/index.htm,https://en.wikipedia.org/wiki/Carlsbad_Caverns_National_Park,5/14/1930,73.08913862,121590.1335,189.3,314917,6535,3596,2939
+CHIS,Channel Islands,National Park,California,https://www.nps.gov/chis/index.htm,https://en.wikipedia.org/wiki/Channel_Islands_National_Park,3/5/1980,389.92457,163695.7322,1009.9,423970,1812,0,1812
+COSW,Congaree,National Park,South Carolina,https://www.nps.gov/cong/index.htm,https://en.wikipedia.org/wiki/Congaree_National_Park,11/10/2003,41.35154119,32020.22422,107.1,82932,140,80,60
+CRLA,Crater Lake,National Park,Oregon,https://www.nps.gov/crla/index.htm,https://en.wikipedia.org/wiki/Crater_Lake_National_Park,5/22/1902,286.2947506,98381.14662,741.5,254806,8929,3990,4939
+CUVA,Cuyahoga Valley,National Park,Ohio,https://www.nps.gov/cuva/index.htm,https://en.wikipedia.org/wiki/Cuyahoga_Valley_National_Park,10/11/2000,50.8882645,44824.9162,131.8,116096,1164,590,574
+DEVA,Death Valley,National Park,California and Nevada,https://www.nps.gov/deva/index.htm,https://en.wikipedia.org/wiki/Death_Valley_National_Park,10/31/1994,5325.622904,0,13793.3,,11049,-279,11328
+DENA,Denali,National Park and Preserve,Alaska,https://www.nps.gov/dena/index.htm,https://en.wikipedia.org/wiki/Denali_National_Park_and_Preserve,2/26/1917,7407.678794,663267.9098,19185.8,1717856,20310,240,20070
+DRTO,Dry Tortugas,National Park,Florida,https://www.nps.gov/drto/index.htm,https://en.wikipedia.org/wiki/Dry_Tortugas_National_Park,10/26/1992,101.0815451,65757.83083,261.8,170312,10,0,10
+EVER,Everglades,National Park,Florida,https://www.nps.gov/ever/index.htm,https://en.wikipedia.org/wiki/Everglades_National_Park,5/30/1934,2357.732831,65757.83083,6106.5,170312,20,0,20
+GAAR,Gates of the Arctic,National Park,Alaska,https://www.nps.gov/gaar/index.htm,https://en.wikipedia.org/wiki/Gates_of_the_Arctic_National_Park_and_Preserve,12/2/1980,11756.07714,663267.9098,30448.1,1717856,8276,280,7996
+20,Gateway Arch,National Park,Missouri,https://www.nps.gov/jeff/index.htm,https://en.wikipedia.org/wiki/Gateway_Arch_National_Park,2/22/2018,0.308881727,69714.60576,0.8,180560,446,1076,630
+GLBA,Glacier Bay,National Park,Alaska,https://www.nps.gov/glba/index.htm,https://en.wikipedia.org/wiki/Glacier_Bay_National_Park_and_Preserve,12/2/1980,1583.01885,663267.9098,4100,1717856,15300,0,15300
+GLAC,Glacier,National Park,Montana,https://www.nps.gov/glac/index.htm,https://en.wikipedia.org/wiki/Glacier_National_Park_(U.S.),5/11/1910,5036.548218,147027.702,13044.6,380800,10466,3150,7316
+GRCA,Grand Canyon,National Park,Arizona,https://www.nps.gov/grca/index.htm,https://en.wikipedia.org/wiki/Grand_Canyon_National_Park,2/26/1919,1877.576187,113990.4847,4862.9,295234,9165,1173,7992
+GRTE,Grand Teton,National Park,Wyoming,https://www.nps.gov/grte/index.htm,https://en.wikipedia.org/wiki/Grand_Teton_National_Park,2/26/1929,484.4423784,97915.50742,1254.7,253600,13770,6310,7460
+GRBA,Great Basin,National Park,Nevada,https://www.nps.gov/grba/index.htm,https://en.wikipedia.org/wiki/Great_Basin_National_Park,10/27/1986,120.5797041,110572.7084,312.3,286382,13065,6195,6870
+GRSA,Great Sand Dunes,National Park,Colorado,https://www.nps.gov/grsa/index.htm,https://en.wikipedia.org/wiki/Great_Sand_Dunes_National_Park_and_Preserve,9/13/2004,167.7227777,104184.6482,434.4,269837,13610,7520,6090
+GRSM,Great Smoky Mountains,National Park,North Carolina and Tennessee,https://www.nps.gov/grsm/index.htm,https://en.wikipedia.org/wiki/Great_Smoky_Mountains_National_Park,6/15/1934,816.2971837,0,2114.2,,6643,874,5769
+GUMO,Guadalupe Mountains,National Park,Texas,https://www.nps.gov/gumo/index.htm,https://en.wikipedia.org/wiki/Guadalupe_Mountains_National_Park,10/15/1966,134.9427044,268820.153,349.5,696241,8749,3636,5113
+HALE,Haleakala,National Park,Hawaii,https://www.nps.gov/hale/index.htm,https://en.wikipedia.org/wiki/Haleakal%C4%81_National_Park,7/1/1961,51.96935055,10930.93821,134.6,28311,10023,0,10023
+HAVO,Hawaii Volcanoes,National Park,Hawaii,https://www.nps.gov/havo/index.htm,https://en.wikipedia.org/wiki/Hawai%CA%BBi_Volcanoes_National_Park,8/1/1916,508.7668144,10930.93821,1317.7,28311,13679,0,13679
+HOSP,Hot Springs,National Park,Arkansas,https://www.nps.gov/hosp/index.htm,https://en.wikipedia.org/wiki/Hot_Springs_National_Park,3/4/1921,8.687298568,53178.62251,22.5,137732,1405,415,990
+32,Indiana Dunes,National Park,Indiana,https://www.nps.gov/indu/index.htm,https://en.wikipedia.org/wiki/Indiana_Dunes_National_Park,2/15/2019,23.97694405,36417.5417,62.1,94321,900,597,303
+ISRO,Isle Royale,National Park,Michigan,https://www.nps.gov/isro/index.htm,https://en.wikipedia.org/wiki/Isle_Royale_National_Park,4/3/1940,893.440395,96715.88801,2314,250493,1394,600,794
+JOTR,Joshua Tree,National Park,California,https://www.nps.gov/jotr/index.htm,https://en.wikipedia.org/wiki/Joshua_Tree_National_Park,10/31/1994,1242.438136,163695.7322,3217.9,423970,5813,1780,4033
+KATM,Katmai,National Park and Preserve,Alaska,https://www.nps.gov/katm/index.htm,https://en.wikipedia.org/wiki/Katmai_National_Park_and_Preserve,10/2/1980,5741.339098,663267.9098,14870,1717856,7606,0,7606
+KEFJ,Kenai Fjords,National Park,Alaska,https://www.nps.gov/kefj/index.htm,https://en.wikipedia.org/wiki/Kenai_Fjords_National_Park,10/2/1980,1046.33685,663267.9098,2710,1717856,6450,0,6450
+KICA,Kings Canyon,National Park,California,https://www.nps.gov/seki/index.htm,https://en.wikipedia.org/wiki/Kings_Canyon_National_Park,3/4/1940,721.7021548,163695.7322,1869.2,423970,14242,3480,10762
+KOVA,Kobuk Valley,National Park,Alaska,https://www.nps.gov/kova/index.htm,https://en.wikipedia.org/wiki/Kobuk_Valley_National_Park,12/2/1980,2735.495183,663267.9098,7084.9,1717856,4760,40,4720
+LACL,Lake Clark,National Park and Preserve,Alaska,https://www.nps.gov/lacl/index.htm,https://en.wikipedia.org/wiki/Lake_Clark_National_Park_and_Preserve,12/2/1980,4093.455085,663267.9098,10602,1717856,10197,0,10197
+LAVO,Lassen Volcanic,National Park,California,https://www.nps.gov/lavo/index.htm,https://en.wikipedia.org/wiki/Lassen_Volcanic_National_Park,8/9/1916,166.5644712,163695.7322,431.4,423970,10457,5275,5182
+MACA,Mammoth Cave,National Park,Kentucky,https://www.nps.gov/maca/index.htm,https://en.wikipedia.org/wiki/Mammoth_Cave_National_Park,7/1/1941,84.40193187,40409.06582,218.6,104659,925,421,504
+MEVE,Mesa Verde,National Park,Colorado,https://www.nps.gov/meve/index.htm,https://en.wikipedia.org/wiki/Mesa_Verde_National_Park,6/29/1906,82.00809849,104184.6482,212.4,269837,8571,6015,2556
+MORA,Mount Rainier,National Park,Wahington,https://www.nps.gov/mora/index.htm,https://en.wikipedia.org/wiki/Mount_Rainier_National_Park,3/2/1899,369.3453249,71362.10367,956.6,184827,14411,1610,12801
+NPSA,National Park of,American Samoa,American Samoa,https://www.nps.gov/npsa/index.htm,https://en.wikipedia.org/wiki/National_Park_of_American_Samoa,10/31/1988,12.8958121,77.22043172,33.4,200,3000,0,3000
+NOCA,North Cascades,National Park,Washington,https://www.nps.gov/noca/index.htm,https://en.wikipedia.org/wiki/North_Cascades_National_Park,10/2/1968,788.7294896,71362.10367,2042.8,184827,9206,605,8601
+OLYM,Olympic,National Park,Washington,https://www.nps.gov/olym/index.htm,https://en.wikipedia.org/wiki/Olympic_National_Park,6/29/1938,1441.62824,71362.10367,3733.8,184827,7962,0,7962
+PEFO,Petrified Forest,National Park,Arizona,https://www.nps.gov/pefo/index.htm,https://en.wikipedia.org/wiki/Petrified_Forest_National_Park,12/9/1962,345.9089239,113990.4847,895.9,295234,6234,5200,1034
+48,Pinnacles,National Park,California,https://www.nps.gov/pinn/index.htm,https://en.wikipedia.org/wiki/Pinnacles_National_Park,1/10/2013,41.69903313,163695.7322,108,423970,3304,824,2480
+REDW,Redwood,National Park,California,https://www.nps.gov/redw/index.htm,https://en.wikipedia.org/wiki/Redwood_National_and_State_Parks,10/2/1968,217.1824642,163695.7322,562.5,423970,3170,0,3170
+ROMO,Rocky Mountain,National Park,Colorado,https://www.nps.gov/romo/index.htm,https://en.wikipedia.org/wiki/Rocky_Mountain_National_Park,1/26/1915,415.330092,104184.6482,1075.7,269837,14259,7630,6629
+SAGU,Saguaro,National Park,Arizona,https://www.nps.gov/sagu/index.htm,https://en.wikipedia.org/wiki/Saguaro_National_Park,10/14/1994,143.3211213,113990.4847,371.2,295234,8666,2180,6486
+SEQU,Sequoia,National Park,California,https://www.nps.gov/seki/index.htm,https://en.wikipedia.org/wiki/Sequoia_National_Park,8/25/1890,631.3542497,163695.7322,1635.2,423970,14505,1360,13145
+SHEN,Shenandoah,National Park,Virginia,https://www.nps.gov/shen/index.htm,https://en.wikipedia.org/wiki/Shenandoah_National_Park,10/26/1935,311.2755603,42774.58633,806.2,110785.67,4051,530,3521
+THRO,Theodore Roosevelt,National Park,North Dakota,https://www.nps.gov/thro/index.htm,https://en.wikipedia.org/wiki/Theodore_Roosevelt_National_Park,11/10/1978,110.0777254,70982.17914,285.1,183843,2860,1940,920
+VIIS,Virgin Islands,National Park,US Virgin Islands,https://www.nps.gov/viis/index.htm,https://en.wikipedia.org/wiki/Virgin_Islands_National_Park,8/2/1956,23.51362146,133.7457877,60.9,346.4,1277,0,1277
+VOYA,Voyageurs,National Park,Minnesota,https://www.nps.gov/voya/index.htm,https://en.wikipedia.org/wiki/Voyageurs_National_Park,1/8/1971,340.9668163,86935.92034,883.1,225163,1410,1108,302
+57,White Sands,National Park,New Mexico,https://www.nps.gov/whsa/index.htm,https://en.wikipedia.org/wiki/White_Sands_National_Park,12/20/2019,228.6496983,121590.1335,592.2,314917,4116,3887,229
+WICA,Wind Cave,National Park,South Dakota,https://www.nps.gov/wica/index.htm,https://en.wikipedia.org/wiki/Wind_Cave_National_Park,1/9/1903,53.08904681,77115.79803,137.5,199729,5013,3559,1454
+WRST,Wrangell-St. Elias,National Park and Preserve,Alaska,https://www.nps.gov/wrst/index.htm,https://en.wikipedia.org/wiki/Wrangell%E2%80%93St._Elias_National_Park_and_Preserve,12/2/1980,13004.92457,663267.9098,33682.6,1717856,18008,0,18008
+YELL,Yellowstone,National Park,"Wyoming, Montana, and Idaho",https://www.nps.gov/yell/index.htm,https://en.wikipedia.org/wiki/Yellowstone_National_Park,03/01/1872,3468.432911,0,8983.2,,11358,5282,6076
+YOSE,Yosemite,National Park,California,https://www.nps.gov/yose/index.htm,https://en.wikipedia.org/wiki/Yosemite_National_Park,10/01/1890,1190.237124,163695.7322,3082.7,423970,13114,2105,11009
+ZION,Zion,National Park,Utah,https://www.nps.gov/zion/index.htm,https://en.wikipedia.org/wiki/Zion_National_Park,11/19/1919,230.0782763,84898.84535,595.9,219887,8726,3640,5086

@@ -1,0 +1,8 @@
+mode,device,stb,data,data1,data2,data3,data4
+modelo1,device1,stb1,data1,data2,data3,data4
+modelo1,device2,stb1,data1,data2,data3,data4
+modelo2,device1,stb1,data1,data2,data3,data4
+modelo2,device1,stb2,data1,data2,data3,data4
+modelo2,device2,stb1,data1,data2,data3,data4
+modelo2,device2,stb2,data1,data2,data3,data4
+modelo2,device2,stb3,data1,data2,data3,data4

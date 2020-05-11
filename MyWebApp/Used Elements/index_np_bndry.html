@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>National Park Boundaries</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='libraries/mapbox.js'></script>
+<link href='libraries/mapbox.css' rel='stylesheet' />
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+</head>
+<body>
+<script src='libraries/omnivore.js'></script>
+
+<div id='map'></div>
+
+<script>
+L.mapbox.accessToken = 'pk.eyJ1IjoicGRiYXJ0c2NoIiwiYSI6IktCQVRZSnMifQ.lkDvYfHPWix0mNfNqvdxEA';
+var map = L.mapbox.map('map', 'examples.map-i86nkdio').setView([45, -110], 4);
+
+var style = {
+    "color": "#dd1c77",
+    "weight": 5,
+    "opacity": 0.8
+};
+
+
+
+function onEachFeature(feature, layer) {
+    // does this feature have a property named popupContent?
+    if (feature.properties && feature.properties.UNIT_NAME) {
+        layer.bindPopup(feature.properties.UNIT_NAME);
+    }
+}
+
+var layer = L.geoJson(null, {style: style, onEachFeature: onEachFeature});
+omnivore.topojson('natparks.json', null, layer).addTo(map);
+
+
+</script>
+</body>
+</html>
