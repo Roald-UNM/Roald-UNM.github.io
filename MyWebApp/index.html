@@ -12,7 +12,7 @@
 
     <!-- Multi-line Chart -->
     <script src="downloaded_libraries/d3_v4130.js"></script>
-    <link rel="stylesheet" href="../myCSS_styleFiles/multi_line_chart.css">
+    <link rel="stylesheet" href="myCSS_styleFiles/multi_line_chart.css">
     <!-- <script src="https://d3js.org/d3.v4.js"></script> -->
 
     <!--our own style rules-->
@@ -65,27 +65,21 @@
 
 
 
-        <div style="flex-grow:1">
+        <div style="flex-grow:1; Background-color:green;">
 
-            <div id="chart-container">
+            <h1 style="font-size: 300%; text-align:center; color: White">US National Park Visitor Statistics</h1>
+            <div id="chart-container;" style="background-color: white;">
                 <div id="fruitDropdown"></div>
                 <div id="yearDropdown"></div>
                 <div id="graph"></div>
                 <script src="myJS_scripts/vis_month_multi_line.js"></script>
 
 
-                <div id="chartContainer" style="display: flex; width: 100%;"></div>
+                <!-- <div id="chartContainer" style="display: flex; width: 100%;"></div>
                 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
                 <div id="graph"></div>
-                <script src="myJS_scripts/range_chart.js"></script>
-
-
-                 <!-- youtube videos -->
-                  <div id="space" class="body">
-                    <iframe width="100%" height="1300" src="https://www.youtube.com/embed/2pcGn1cIVYg?autoplay=1"
-                      controls muted></iframe>
-                  </div>
+                <script src="myJS_scripts/range_chart.js"></script> -->
 
             </div>
 
@@ -225,7 +219,13 @@
             },
 
             onEachFeature: function (feature, layer) {
-                layer.bindPopup('<p style="text-align:center;"><strong>' + feature.properties.UNIT_NAME + '</strong><br>' + feature.properties.state + '</p>')
+                layer.bindPopup('<p style="text-align:center;"><strong>' + feature.properties.UNIT_NAME + '</strong><br>'
+                    + feature.properties.state + '<br>'
+                    + "Established " + feature.properties.establish + '<br>'
+                    + feature.properties.parkSQkm + " (square km)" + '<br>'
+                    + "Elevation: Highest=" + feature.properties.elev_hi + "(ft)    Lowest=" + feature.properties.elev_lo + "(ft)" + '<br>'
+                    + feature.properties.nps_page + '<br>'
+                    + feature.properties.wiki_page + '</p>')
             }
 
 

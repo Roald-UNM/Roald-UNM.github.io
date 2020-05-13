@@ -52,3 +52,8 @@ Need sidebar with info for each park
 
 
 
+*******************************************
++add websites
++remove Canvas range chart
++"global" variable to link boundaries to charts
+

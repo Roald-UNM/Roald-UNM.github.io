@@ -34,9 +34,12 @@
     position: fixed;
     bottom: 5px;
     left: 5px;
+    height: 35px;
+    width: 70px;
+    font-size: 20px;
     border-radius: 8px;
     background-color: white;
-    opacity: 0.5;
+    opacity: 0.6;
     color: darkgreen;
     border: 1px solid darkgreen;
     z-index: 2;
