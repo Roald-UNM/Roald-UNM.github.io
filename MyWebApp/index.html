@@ -68,7 +68,8 @@
         <div style="flex-grow:1; Background-color:green;">
 
             <h1 style="font-size: 300%; text-align:center; color: White">US National Park Visitor Statistics</h1>
-            <p style="font-size: 100%; text-align:center; color: White"><i>(click the national park on the map for park info and select drop down menu to update the visitor chart)</i></p>
+            <p style="font-size: 100%; text-align:center; color: White"><i>(click the national park on the map for park
+                    info and select drop down menu to update the visitor chart)</i></p>
             <div id="chart-container;" style="background-color: white;">
                 <div id="fruitDropdown"></div>
                 <div id="yearDropdown"></div>
@@ -111,13 +112,22 @@
                     The goal of this webpage is to provite a high level of detail for many different fields as future
                     updates.</p>
                 <p><b>Acknowledgements</b><br></p>
-                <p> Project Advisor: 
+                <p> Project Advisor:
                     <a href="https://lipingyang.org/">Dr. Liping Yang</a> (course instructor of GEOG 585L Internet
                     Mapping, University of New Mexico)
                     <br>
                     Developed by: <a href="https://roald-unm.github.io">Roald Kern</a> <br>
                     <small>Updated 5/11/20</Small></p>
+
+
+                <p> <b>Our web app visitor map:</b></p>
+                <script type="text/javascript" id="clustrmaps"
+                    src="//cdn.clustrmaps.com/map_v2.js?d=xienvipWBMpJH6o2O87K2DsxQ4ge-iDlq6_5tX1tkcU&cl=ffffff&w=a">
+                </script>
+
             </div>
+
+           
             <div class="modal-footer">
                 <!-- <h3 style="text-shadow:2px 2px 0 #444">Links for Data Sources <br></h3> -->
 
@@ -235,8 +245,8 @@
                     + "<b> Established: </b>" + feature.properties.establish + '<br>'
                     + "<b> Area: </b>" + feature.properties.parkSQkm + " (square km)" + '<br>'
                     + "<b>Elevation:</b> <i>Highest</i> (" + feature.properties.elev_hi + "ft), <i>Lowest</i>  (" + feature.properties.elev_lo + "ft)" + '<br>'
-                    +  "<a href=" + feature.properties.nps_page + " target='_blank'> Official website </a>"  +  "<br>"
-                    + "<a href=" + feature.properties.wiki_page + " target='_blank'> Wikipedia page </a>"  + '</p>')
+                    + "<a href=" + feature.properties.nps_page + " target='_blank'> Official website </a>" + "<br>"
+                    + "<a href=" + feature.properties.wiki_page + " target='_blank'> Wikipedia page </a>" + '</p>')
             }
 
 
