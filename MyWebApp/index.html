@@ -68,6 +68,7 @@
         <div style="flex-grow:1; Background-color:green;">
 
             <h1 style="font-size: 300%; text-align:center; color: White">US National Park Visitor Statistics</h1>
+            <p style="font-size: 100%; text-align:center; color: White"><i>(click the national park on the map for park info and select drop down menu to update the visitor chart)</i></p>
             <div id="chart-container;" style="background-color: white;">
                 <div id="fruitDropdown"></div>
                 <div id="yearDropdown"></div>
@@ -110,12 +111,12 @@
                     The goal of this webpage is to provite a high level of detail for many different fields as future
                     updates.</p>
                 <p><b>Acknowledgements</b><br></p>
-                <p> Project Advisor: Dr. Liping Yang
-                    <a href="https://lipingyang.org/">www.lipingyang.org</a> course instructor of GEOG 585L Internet
-                    Mapping, University of New Mexico
+                <p> Project Advisor: 
+                    <a href="https://lipingyang.org/">Dr. Liping Yang</a> (course instructor of GEOG 585L Internet
+                    Mapping, University of New Mexico)
                     <br>
-                    Developed by: Roald Kern <a href="https://roald-unm.github.io">https://roald-unm.github.io</a> <br>
-                    <small>Updated 4/29/20</Small></p>
+                    Developed by: <a href="https://roald-unm.github.io">Roald Kern</a> <br>
+                    <small>Updated 5/11/20</Small></p>
             </div>
             <div class="modal-footer">
                 <!-- <h3 style="text-shadow:2px 2px 0 #444">Links for Data Sources <br></h3> -->
@@ -218,14 +219,24 @@
                 }
             },
 
+            // onEachFeature: function (feature, layer) {
+            //     layer.bindPopup('<p style="text-align:center;"><strong>' + feature.properties.UNIT_NAME + '</strong><br>'
+            //         + feature.properties.state + '<br>'
+            //         + "Established " + feature.properties.establish + '<br>'
+            //         + feature.properties.parkSQkm + " (square km)" + '<br>'
+            //         + "Elevation: Highest=" + feature.properties.elev_hi + "(ft)    Lowest=" + feature.properties.elev_lo + "(ft)" + '<br>'
+            //         + feature.properties.nps_page + '<br>'
+            //         + feature.properties.wiki_page + '</p>')
+            // }
+            // with nicer formated popup and clickalb links, as our visitors DO NOT want to copy and paste the link!
             onEachFeature: function (feature, layer) {
-                layer.bindPopup('<p style="text-align:center;"><strong>' + feature.properties.UNIT_NAME + '</strong><br>'
-                    + feature.properties.state + '<br>'
-                    + "Established " + feature.properties.establish + '<br>'
-                    + feature.properties.parkSQkm + " (square km)" + '<br>'
-                    + "Elevation: Highest=" + feature.properties.elev_hi + "(ft)    Lowest=" + feature.properties.elev_lo + "(ft)" + '<br>'
-                    + feature.properties.nps_page + '<br>'
-                    + feature.properties.wiki_page + '</p>')
+                layer.bindPopup('<p style="text-align:left;"><strong>' + feature.properties.UNIT_NAME + '</strong><br>'
+                    + "<b> Location: </b>" + feature.properties.state + '<br>'
+                    + "<b> Established: </b>" + feature.properties.establish + '<br>'
+                    + "<b> Area: </b>" + feature.properties.parkSQkm + " (square km)" + '<br>'
+                    + "<b>Elevation:</b> <i>Highest</i> (" + feature.properties.elev_hi + "ft), <i>Lowest</i>  (" + feature.properties.elev_lo + "ft)" + '<br>'
+                    +  "<a href=" + feature.properties.nps_page + " target='_blank'> Official website </a>"  +  "<br>"
+                    + "<a href=" + feature.properties.wiki_page + " target='_blank'> Wikipedia page </a>"  + '</p>')
             }
 
 
